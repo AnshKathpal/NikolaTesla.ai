@@ -12,6 +12,8 @@ from langchain.chains import RetrievalQA
 from langchain.chains import ConversationalRetrievalChain
 from langchain.memory import ConversationBufferMemory
 import subprocess
+from flask_cors import CORS
+
 
 # Load environment variables from .env file
 _ = load_dotenv(find_dotenv())
@@ -20,6 +22,7 @@ _ = load_dotenv(find_dotenv())
 openai.api_key = os.environ["OPENAI_API_KEY"]
 
 app = Flask(__name__)
+CORS(app)
 
 subprocess.run(["rm", "-rf", "./docs/chroma"])
 
@@ -46,7 +49,7 @@ vectordb = Chroma.from_documents(
 )
 
 # Initialize ChatOpenAI
-llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=1)
+llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0.7)
 
 # Create QA chain
 qa_chain = RetrievalQA.from_chain_type(
