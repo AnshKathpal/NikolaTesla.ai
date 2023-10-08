@@ -49,7 +49,7 @@ vectordb = Chroma.from_documents(
 )
 
 # Initialize ChatOpenAI
-llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0.7)
+llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=1)
 
 # Create QA chain
 qa_chain = RetrievalQA.from_chain_type(
@@ -86,13 +86,19 @@ def chat():
         # Perform similarity search
         docs = vectordb.similarity_search(question, k=3)
 
+        print(docs)
+
+
+
         # Extract page content from the top 3 results
         page_contents = [doc.page_content for doc in docs]
+        page_number = [doc.metadata for doc in docs]
 
         # Combine the responses
         response_data = {
             "answer_from_chat": answer_from_chat,
-            "top_3_similarity_results": page_contents
+            "top_3_similarity_results": page_contents,
+            "meta_data" : page_number
         }
         return jsonify(response_data)
 
