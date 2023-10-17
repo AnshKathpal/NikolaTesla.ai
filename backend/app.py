@@ -15,10 +15,10 @@ import subprocess
 from flask_cors import CORS
 
 
-# Load environment variables from .env file
+
 _ = load_dotenv(find_dotenv())
 
-# Initialize OpenAI API with your API key
+
 openai.api_key = os.environ["OPENAI_API_KEY"]
 
 app = Flask(__name__)
@@ -26,44 +26,44 @@ CORS(app)
 
 subprocess.run(["rm", "-rf", "./docs/chroma"])
 
-# Load PDF document
+
 loader = PyPDFLoader("./docs/tesla.pdf")
 pages = loader.load()
 
-# Initialize text splitter
+
 text_splitter = RecursiveCharacterTextSplitter(
     chunk_size=1000,
     chunk_overlap=200
 )
 splits = text_splitter.split_documents(pages)
 
-# Initialize OpenAI embeddings
+
 embedding = OpenAIEmbeddings()
 persist_directory = "docs/chroma/"
 
-# Create the vector store
+
 vectordb = Chroma.from_documents(
     documents=splits,
     embedding=embedding,
     persist_directory=persist_directory
 )
 
-# Initialize ChatOpenAI
+
 llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=1)
 
-# Create QA chain
+
 qa_chain = RetrievalQA.from_chain_type(
     llm,
     retriever=vectordb.as_retriever()
 )
 
-# Initialize conversation memory
+
 memory = ConversationBufferMemory(
     memory_key="chat_history",
     return_messages=True
 )
 
-# Create ConversationalRetrievalChain
+
 retriever = vectordb.as_retriever()
 
 qa = ConversationalRetrievalChain.from_llm(
