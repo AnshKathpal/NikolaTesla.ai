@@ -29,6 +29,10 @@ openai.api_key = os.environ["OPENAI_API_KEY"]
 app = Flask(__name__)
 CORS(app)
 
+
+port = int(os.environ.get("PORT", 5000))
+print(port)
+
 subprocess.run(["rm", "-rf", "./docs/chroma"])
 
 
@@ -110,4 +114,4 @@ def chat():
         return jsonify({"error": error_message}), 500
 
 if __name__ == "__main__":
-    app.run()
+    app.run(port  = port)
