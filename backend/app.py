@@ -79,7 +79,6 @@ def chat():
         data = request.json
         question = data.get("question")
 
-        # Perform the question-answering process
         result = qa({"question": question})
         answer_from_chat = result["answer"]
 
