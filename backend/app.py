@@ -75,7 +75,6 @@ qa = ConversationalRetrievalChain.from_llm(
 @app.route("/chat", methods=["POST"])
 def chat():
     try:
-        # Parse incoming JSON data
         data = request.json
         question = data.get("question")
 
