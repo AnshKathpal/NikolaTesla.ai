@@ -82,7 +82,6 @@ def chat():
         result = qa({"question": question})
         answer_from_chat = result["answer"]
 
-        # Perform similarity search
         docs = vectordb.similarity_search(question, k=3)
 
         print(docs)
