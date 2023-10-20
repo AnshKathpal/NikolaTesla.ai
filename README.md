@@ -35,6 +35,16 @@ NikolaTesla.ai is an advanced chatbot application that provides in-depth knowled
 ### Database
 - **ChromaDB**: ChromaDB is integrated to store vector searches for efficient retrieval of related content.
 
+<img width="1680" alt="Screenshot 2023-10-21 at 2 46 12 AM" src="https://github.com/AnshKathpal/NikolaTesla.ai/assets/115460552/e86cee95-93ae-4807-8e7d-913f61d6aaf4">
+
+<img width="1680" alt="Screenshot 2023-10-21 at 2 46 22 AM" src="https://github.com/AnshKathpal/NikolaTesla.ai/assets/115460552/2c4dc8a4-33a0-486d-98d1-e8cc8cb68871">
+
+<img width="1680" alt="Screenshot 2023-10-21 at 2 46 59 AM" src="https://github.com/AnshKathpal/NikolaTesla.ai/assets/115460552/d0d7feea-7fb3-4f9d-9cde-9e216dfc0342">
+
+<img width="1680" alt="Screenshot 2023-10-21 at 2 47 06 AM" src="https://github.com/AnshKathpal/NikolaTesla.ai/assets/115460552/a61868ba-97fd-41df-91b1-414ec99499cd">
+
+<img width="1680" alt="Screenshot 2023-10-21 at 2 47 21 AM" src="https://github.com/AnshKathpal/NikolaTesla.ai/assets/115460552/0b5c7a4f-b868-4167-a110-416ffc95408b">
+
 ## Installation and Setup
 1. Clone the repository from GitHub.
 
