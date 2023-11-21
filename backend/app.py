@@ -113,5 +113,5 @@ def chat():
         error_message = str(e)
         return jsonify({"error": error_message}), 500
 
-if __name__ == "__main__":
-    app.run(port  = port)
+# if __name__ == "__main__":
+#     app.run(port  = port)
