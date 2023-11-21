@@ -8,6 +8,5 @@ pypdf
 PyPDF2
 python-dotenv
 SQLAlchemy
-tiktoken
 pysqlite3-binary
 gunicorn
